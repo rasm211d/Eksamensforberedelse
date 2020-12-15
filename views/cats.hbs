@@ -1,0 +1,43 @@
+<div class="container-fluid col-6 align-self-center">
+    <h1 class="mb-3">This is all the cats</h1>
+    <form class="mb-5" method="post">
+        <h4>Submit your own cat</h4>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" for="catName">Name of your cat</label>
+            <div class="col-4">
+                <input id="catName" name="catName" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" for="catAge">Age of your cat</label>
+            <div class="col-4">
+                <input id="catAge" name="catAge" type="number" class="form-control">
+            </div>
+        </div>
+        <input class="btn btn-dark" type="submit" name="submit" id="submit" value="Save">
+    </form>
+    {{#each cats}}
+    <div class="form-group row mb-3">
+        <div class="col-4" >
+            <h5>
+                your cats name: {{name}}
+            </h5>
+            <h5>
+                is your cat alive?: {{living}}
+            </h5>
+            <h5>
+                your cats age {{age}}
+            </h5>
+        </div>
+        <div class="col-1 align-self-center">
+            <form method="post" action="cats/delete/{{id}}">
+                <input class="btn btn-dark" type="submit" name="submit" value="Delete">
+            </form>
+        </div>
+    </div>
+
+
+    {{/each}}
+
+
+</div>
